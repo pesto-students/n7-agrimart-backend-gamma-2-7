@@ -6,9 +6,12 @@ const categorySchema = mongoose.Schema(
   {
     name: { type: String },
     slug: { type: String, unique: true, required: true },
-    description: { type: String },
+    seller: {
+      type: String,
+      enum: ['BOTH', 'FARMER', 'COMPANY'],
+      default: 'BOTH',
+    },
     icon: { type: String, required: true },
-    products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
   },
   {
     timestamps: true,

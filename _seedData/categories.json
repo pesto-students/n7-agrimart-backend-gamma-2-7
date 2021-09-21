@@ -1,0 +1,22 @@
+[
+  {
+    "name": "esticides",
+    "seller": "COMPANY",
+    "icon": "../Images/pesticides category.png"
+  },
+  {
+    "name": "pesticides1",
+    "seller": "COMPANY",
+    "icon": "../Images/pesticides category.png"
+  },
+  {
+    "name": "pesticides2",
+    "seller": "COMPANY",
+    "icon": "../Images/pesticides category.png"
+  },
+  {
+    "name": "pesticides3",
+    "seller": "COMPANY",
+    "icon": "../Images/pesticides category.png"
+  }
+]
