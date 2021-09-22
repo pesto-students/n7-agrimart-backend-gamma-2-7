@@ -20,6 +20,7 @@ const updateUser = {
       zipCode: Joi.string().required(),
       area: Joi.string().required(),
     }),
+    avatar: Joi.string(),
     userType: Joi.string().valid('BUYER', 'FARMER', 'COMPANY'),
   }),
 };
