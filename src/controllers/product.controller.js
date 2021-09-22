@@ -1,0 +1,52 @@
+const httpStatus = require('http-status');
+const pick = require('../utils/pick');
+const catchAsync = require('../utils/catchAsync');
+const { productService } = require('../services');
+
+const createProduct = catchAsync(async (req, res) => {
+  const user = await productService.createProduct(req.user.id, req.body);
+  res.status(httpStatus.CREATED).send(user);
+});
+
+const getProducts = catchAsync(async (req, res) => {
+  const filter = pick(req.query, ['title', 'description', 'categories', 'productOn', 'productBy']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  if (filter.title) {
+    // eslint-disable-next-line security/detect-non-literal-regexp
+    const regex = new RegExp(filter.title, 'i'); // i for case insensitive
+    filter.title = { $regex: regex };
+  }
+  if (filter.description) {
+    // eslint-disable-next-line security/detect-non-literal-regexp
+    const regex = new RegExp(filter.description, 'i'); // i for case insensitive
+    filter.description = { $regex: regex };
+  }
+  const result = await productService.queryProducts(filter, options);
+  res.send(result);
+});
+
+const getProduct = catchAsync(async (req, res) => {
+  const product = await productService.getProductById(req.params.productId);
+  if (!product) {
+    res.send(httpStatus.NOT_FOUND, 'Product not found');
+  }
+  res.send(product);
+});
+
+const updateProduct = catchAsync(async (req, res) => {
+  const product = await productService.updateUserById(req, res);
+  res.send(product);
+});
+
+const deleteProduct = catchAsync(async (req, res) => {
+  await productService.deleteProductById(req, res);
+  res.status(httpStatus.NO_CONTENT).send();
+});
+
+module.exports = {
+  createProduct,
+  getProducts,
+  getProduct,
+  updateProduct,
+  deleteProduct,
+};

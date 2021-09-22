@@ -18,35 +18,28 @@ const productSchema = mongoose.Schema(
     minimumOrderQuantity: {
       type: String,
     },
-    productType: {
-      on: {
-        enum: ['SELL', 'RENT'],
-        default: 'BUYER',
-      },
-      by: {
-        enum: ['FARMER', 'COMPANY'],
-        default: 'BUYER',
-      },
+    productOn: {
+      type: String,
+      enum: ['SELL', 'RENT'],
+      default: 'SELL',
+      required: true,
     },
+    productBy: {
+      type: String,
+      enum: ['FARMER', 'COMPANY'],
+      default: 'FARMER',
+      required: true,
+    },
+    // comments: {
+    //   type: mongoose.SchemaTypes.ObjectId,
+    //   ref: 'Comment',
+    // },
     images: [
       {
         type: String,
         required: true,
       },
     ],
-    comments: {
-      post: {
-        type: String,
-        trim: true,
-        required: true,
-      },
-      postAuther: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: 'User',
-        required: true,
-      },
-      dateOfPost: { type: Date, default: Date.now },
-    },
     productOwner: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'User',
@@ -71,12 +64,12 @@ productSchema.pre('validate', function (next) {
 });
 
 productSchema.methods.slugify = function () {
-  this.slug = `${slug(this.name)}-${Math.random().toString().slice(2, 11)}`;
+  this.slug = slug(this.title + this.id);
 };
 
 /**
- * @typedef User
+ * @typedef Product
  */
-const Product = mongoose.model('User', productSchema);
+const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
