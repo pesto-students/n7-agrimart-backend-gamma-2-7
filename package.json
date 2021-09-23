@@ -7,7 +7,8 @@
   "author": "Bijay Rauniyar <rauniyarbijay117@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": ">=12.0.0"
+    "node": "16.0.0",
+    "yarn": "1.22.10"
   },
   "scripts": {
     "start": "pm2 start ecosystem.config.json --no-daemon",
