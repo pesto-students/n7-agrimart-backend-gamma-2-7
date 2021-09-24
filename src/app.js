@@ -21,6 +21,10 @@ if (config.env !== 'test') {
   app.use(morgan.errorHandler);
 }
 
+app.get('/', (req, res) => {
+  res.send('Welcome to AgroMart api');
+});
+
 // set security HTTP headers
 app.use(helmet());
 

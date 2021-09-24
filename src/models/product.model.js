@@ -12,7 +12,7 @@ const productSchema = mongoose.Schema(
     description: { type: String, required: true },
     slug: { type: String, lowercase: true, unique: true, required: true },
     price: {
-      type: Number,
+      type: String,
       trim: true,
     },
     minimumOrderQuantity: {
@@ -30,10 +30,10 @@ const productSchema = mongoose.Schema(
       default: 'FARMER',
       required: true,
     },
-    // comments: {
-    //   type: mongoose.SchemaTypes.ObjectId,
-    //   ref: 'Comment',
-    // },
+    comments: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'Comment',
+    },
     images: [
       {
         type: String,

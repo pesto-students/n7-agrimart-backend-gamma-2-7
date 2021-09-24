@@ -5,7 +5,7 @@ const createProduct = {
   body: Joi.object().keys({
     title: Joi.string().required(),
     description: Joi.string().required(),
-    price: Joi.number(),
+    price: Joi.string(),
     productOn: Joi.string().required().valid('SELL', 'RENT'),
     productBy: Joi.string().required().valid('FARMER', 'COMPANY'),
     minimumOrderQuantity: Joi.string(),
