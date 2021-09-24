@@ -9,19 +9,24 @@ const createProduct = catchAsync(async (req, res) => {
 });
 
 const getProducts = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['title', 'description', 'categories', 'productOn', 'productBy']);
+  const filter = pick(req.query, ['title', 'description', 'queryString', 'categories', 'productOn', 'productBy']);
+  let finalFilter = filter;
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   if (filter.title) {
     // eslint-disable-next-line security/detect-non-literal-regexp
     const regex = new RegExp(filter.title, 'i'); // i for case insensitive
-    filter.title = { $regex: regex };
+    finalFilter.title = { $regex: regex };
   }
   if (filter.description) {
     // eslint-disable-next-line security/detect-non-literal-regexp
     const regex = new RegExp(filter.description, 'i'); // i for case insensitive
-    filter.description = { $regex: regex };
+    finalFilter.description = { $regex: regex };
   }
-  const result = await productService.queryProducts(filter, options);
+  if (filter.queryString) {
+    finalFilter = { $text: { $search: filter.queryString } };
+  }
+  options.populate = 'categories';
+  const result = await productService.queryProducts(finalFilter, options);
   res.send(result);
 });
 

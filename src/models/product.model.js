@@ -52,6 +52,9 @@ const productSchema = mongoose.Schema(
   }
 );
 
+// productSchema.index({ title: 'text', descriptin: 'text' });
+productSchema.index({ '$**': 'text' });
+
 // add plugin that converts mongoose to json
 productSchema.plugin(toJSON);
 productSchema.plugin(paginate);

@@ -16,6 +16,7 @@ const createProduct = {
 
 const getProducts = {
   query: Joi.object().keys({
+    queryString: Joi.string(),
     title: Joi.string(),
     description: Joi.string(),
     categories: Joi.string().custom(objectId),
