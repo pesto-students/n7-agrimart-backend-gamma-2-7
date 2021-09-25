@@ -6,7 +6,7 @@ const multer = require('multer');
 // that will be uploaded
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    const destPath = 'public/Images';
+    const destPath = 'uploads/';
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (!fs.existsSync(destPath)) fs.mkdirSync(destPath);
     cb(null, destPath);
