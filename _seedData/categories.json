@@ -1,22 +1,121 @@
 [
   {
-    "name": "esticides",
-    "seller": "COMPANY",
-    "icon": "../Images/pesticides category.png"
+    "name": "Crops",
+    "seller": "FARMER",
+    "for" : "SELL",
+    "icon": "../Images/"
   },
   {
-    "name": "pesticides1",
-    "seller": "COMPANY",
-    "icon": "../Images/pesticides category.png"
+    "name": "Vegetable",
+    "seller": "FARMER",
+    "for" : "SELL",
+    "icon": "../Images/"
   },
   {
-    "name": "pesticides2",
-    "seller": "COMPANY",
-    "icon": "../Images/pesticides category.png"
+    "name": "Fruits",
+    "seller": "FARMER",
+    "for" : "SELL",
+    "icon": "../Images/"
   },
   {
-    "name": "pesticides3",
+    "name": "Organic",
+    "seller": "FARMER",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Spices",
+    "seller": "FARMER",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Dry Fruits",
+    "seller": "FARMER",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Land",
+    "seller": "FARMER",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Others",
+    "seller": "FARMER",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Pesticides",
     "seller": "COMPANY",
-    "icon": "../Images/pesticides category.png"
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Insecticides",
+    "seller": "COMPANY",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Fertilizer",
+    "seller": "COMPANY",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Seeds & Plants",
+    "seller": "COMPANY",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Irrigation Tools",
+    "seller": "COMPANY",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Machinery",
+    "seller": "COMPANY",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Others",
+    "seller": "COMPANY",
+    "for" : "SELL",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Land",
+    "seller": "FARMER",
+    "for" : "RENT",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Others",
+    "seller": "FARMER",
+    "for" : "RENT",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Others",
+    "seller": "COMPANY",
+    "for" : "RENT",
+    "icon": "../Images/"
+  }, {
+    "name": "Farming Vehicles",
+    "seller": "BOTH",
+    "for" : "RENT",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Farming Machine",
+    "seller": "BOTH",
+    "for" : "RENT",
+    "icon": "../Images/"
   }
 ]

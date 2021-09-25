@@ -8,7 +8,16 @@ const categorySchema = mongoose.Schema(
     slug: { type: String, unique: true, required: true },
     seller: {
       type: String,
+      required: true,
       enum: ['BOTH', 'FARMER', 'COMPANY'],
+      index: true,
+      default: 'BOTH',
+    },
+    for: {
+      type: String,
+      required: true,
+      enum: ['SELL', 'RENT', 'BOTH'],
+      index: true,
       default: 'BOTH',
     },
     icon: { type: String, required: true },
@@ -18,12 +27,15 @@ const categorySchema = mongoose.Schema(
   }
 );
 
+categorySchema.index({ seller: 'text' });
+categorySchema.index({ for: 'text' });
+
 // add plugin that converts mongoose to json
 categorySchema.plugin(toJSON);
 categorySchema.plugin(paginate);
 
 categorySchema.pre('validate', function (next) {
-  this.slug = slug(this.name);
+  this.slug = slug(`${this.name}-on${this.for}-by${this.seller}`);
   next();
 });
 

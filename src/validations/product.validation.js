@@ -22,7 +22,7 @@ const getProducts = {
     categories: Joi.string().custom(objectId),
     productOn: Joi.string().valid('SELL', 'RENT'),
     productBy: Joi.string().valid('FARMER', 'COMPANY'),
-    sortBy: Joi.string().valid('desc', 'asc'),
+    sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
   }),

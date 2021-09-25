@@ -9,8 +9,14 @@ const { Category } = require('../models');
  * @param {number} [options.page] - Current page (default = 1)
  * @returns {Promise<QueryResult>}
  */
-const queryCategories = async () => {
-  const categories = await Category.find();
+
+const queryCategories = async (filter, options) => {
+  let categories;
+  if (!options) {
+    categories = await Category.find(filter);
+  } else {
+    categories = await Category.paginate(filter, options);
+  }
   return categories;
 };
 

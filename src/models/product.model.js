@@ -7,12 +7,14 @@ const productSchema = mongoose.Schema(
     title: {
       type: String,
       required: true,
+      index: true,
       trim: true,
     },
-    description: { type: String, required: true },
+    description: { type: String, required: true, index: true },
     slug: { type: String, lowercase: true, unique: true, required: true },
     price: {
       type: String,
+      index: true,
       trim: true,
     },
     minimumOrderQuantity: {
@@ -22,12 +24,14 @@ const productSchema = mongoose.Schema(
       type: String,
       enum: ['SELL', 'RENT'],
       default: 'SELL',
+      index: true,
       required: true,
     },
     productBy: {
       type: String,
       enum: ['FARMER', 'COMPANY'],
       default: 'FARMER',
+      index: true,
       required: true,
     },
     comments: {
@@ -45,7 +49,7 @@ const productSchema = mongoose.Schema(
       ref: 'User',
       required: true,
     },
-    categories: [{ type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Category' }],
+    categories: [{ type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Category', index: true }],
   },
   {
     timestamps: true,
