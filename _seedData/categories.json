@@ -96,8 +96,32 @@
     "icon": "../Images/"
   },
   {
+    "name": "Farming Vehicles",
+    "seller": "FARMER",
+    "for" : "RENT",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Farming Machine",
+    "seller": "FARMER",
+    "for" : "RENT",
+    "icon": "../Images/"
+  },
+  {
     "name": "Others",
     "seller": "FARMER",
+    "for" : "RENT",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Farming Vehicles",
+    "seller": "COMPANY",
+    "for" : "RENT",
+    "icon": "../Images/"
+  },
+  {
+    "name": "Farming Machine",
+    "seller": "COMPANY",
     "for" : "RENT",
     "icon": "../Images/"
   },
@@ -106,16 +130,5 @@
     "seller": "COMPANY",
     "for" : "RENT",
     "icon": "../Images/"
-  }, {
-    "name": "Farming Vehicles",
-    "seller": "BOTH",
-    "for" : "RENT",
-    "icon": "../Images/"
   },
-  {
-    "name": "Farming Machine",
-    "seller": "BOTH",
-    "for" : "RENT",
-    "icon": "../Images/"
-  }
 ]

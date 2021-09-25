@@ -3,8 +3,8 @@ const { objectId } = require('./custom.validation');
 
 const getCategories = {
   query: Joi.object().keys({
-    seller: Joi.string().valid('FARMER', 'COMPANY', 'BOTH'),
-    for: Joi.string().valid('SELL', 'RENT', 'BOTH'),
+    seller: Joi.string().valid('FARMER', 'COMPANY'),
+    for: Joi.string().valid('SELL', 'RENT'),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
