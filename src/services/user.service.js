@@ -54,9 +54,9 @@ const getUserByEmail = async (email) => {
  * @param {Object} updateBody
  * @returns {Promise<User>}
  */
-const updateUserById = async (req,res) => {
+const updateUserById = async (req, res) => {
   const userId = req.user.id;
-  const imagePath = req.file && req.file.path;
+  const imagePath = req.file && req.file.filename;
   const updateBody = req.body;
   const user = await getUserById(userId);
   if (!user) {
@@ -71,7 +71,7 @@ const updateUserById = async (req,res) => {
     await User.updateOne(updateBody, { isEmailVerified: false });
   }
   Object.assign(user, updateBody);
-  user.avatar = imagePath;
+  user.avatar = `${process.env.URL}/${imagePath}`;
   await user.save();
   return user;
 };
