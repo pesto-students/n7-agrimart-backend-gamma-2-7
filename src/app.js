@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -35,7 +36,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // uploads Multer folder
-app.use(express.static('./Images'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // sanitize request data
 app.use(xss());

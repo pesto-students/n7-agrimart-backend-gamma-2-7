@@ -54,7 +54,10 @@ const getUserByEmail = async (email) => {
  * @param {Object} updateBody
  * @returns {Promise<User>}
  */
-const updateUserById = async (userId, imagePath, updateBody) => {
+const updateUserById = async (req,res) => {
+  const userId = req.user.id;
+  const imagePath = req.file && req.file.path;
+  const updateBody = req.body;
   const user = await getUserById(userId);
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found');

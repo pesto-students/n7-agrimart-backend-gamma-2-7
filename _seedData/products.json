@@ -1,0 +1,10 @@
+ [
+  {
+    "title": "tomato",
+    "description": "good quality tomato very fresh",
+    "price":"RS 20/KG",
+     "productOn": "RENT",
+    "productBy": "FARMER",
+    "categories": ["614ec33a23ff235ae8a5338d"]
+    }
+  ]

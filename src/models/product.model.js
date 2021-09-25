@@ -20,20 +20,6 @@ const productSchema = mongoose.Schema(
     minimumOrderQuantity: {
       type: String,
     },
-    productOn: {
-      type: String,
-      enum: ['SELL', 'RENT'],
-      default: 'SELL',
-      index: true,
-      required: true,
-    },
-    productBy: {
-      type: String,
-      enum: ['FARMER', 'COMPANY'],
-      default: 'FARMER',
-      index: true,
-      required: true,
-    },
     comments: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'Comment',

@@ -11,7 +11,7 @@ const createProduct = catchAsync(async (req, res) => {
 const getProducts = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['title', 'description', 'queryString', 'categories', 'productOn', 'productBy']);
   let finalFilter = filter;
-  let options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
   if (filter.title) {
     // eslint-disable-next-line security/detect-non-literal-regexp
     const regex = new RegExp(filter.title, 'i'); // i for case insensitive
@@ -22,11 +22,15 @@ const getProducts = catchAsync(async (req, res) => {
     const regex = new RegExp(filter.description, 'i'); // i for case insensitive
     finalFilter.description = { $regex: regex };
   }
+  if (filter.categories && filter.queryString) {
+    finalFilter = {
+      $and: [{ categories: filter.categories }, { $regex: { $search: filter.queryString } }],
+    };
+  }
   if (filter.queryString) {
     finalFilter = { $text: { $search: filter.queryString } };
   }
-  options = { ...options, populate: 'categories' };
-  console.log(options, 'options');
+  options.populate = 'categories, productOwner';
   const result = await productService.queryProducts(finalFilter, options);
   res.send(result);
 });
