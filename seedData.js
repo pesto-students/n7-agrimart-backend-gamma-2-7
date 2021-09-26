@@ -13,11 +13,16 @@ mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
 });
 
 // Read The JSON files
-const Categories = JSON.parse(fs.readFileSync(`${__dirname}/_seedData/Categories.json`, 'utf-8'));
+let Categories = JSON.parse(fs.readFileSync(`${__dirname}/_seedData/Categories.json`, 'utf-8'));
 
 // Import Sample Data In DB
 const importData = async () => {
   try {
+    Categories = Categories.map((category) => {
+      const categoryObj = { ...category, icon: `${process.env.URL}${category.icon}` };
+      return categoryObj;
+    });
+
     await Category.create(Categories);
     logger.info(`Data successfully imported`);
     process.exit();

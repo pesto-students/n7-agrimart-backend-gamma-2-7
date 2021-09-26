@@ -54,7 +54,7 @@ const getUserByEmail = async (email) => {
  * @param {Object} updateBody
  * @returns {Promise<User>}
  */
-const updateUserById = async (req, res) => {
+const updateUserById = async (req) => {
   const userId = req.user.id;
   const imagePath = req.file && req.file.filename;
   const updateBody = req.body;
@@ -62,6 +62,7 @@ const updateUserById = async (req, res) => {
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
   }
+
   if (updateBody.email) {
     if (await User.isEmailTaken(updateBody.email, userId)) {
       throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');

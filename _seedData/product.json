@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Wheat Grains",
+    "description": "very good Wheat Grains",
+    "price":"RS 50/ KG",
+    "minimumOrderQuantity":"1000 kg",
+    "productOwner": "614edac615fc1c4048cc9acf",
+    "categories": ["614edac615fc1c4048cc9acf"]
+    }
+]

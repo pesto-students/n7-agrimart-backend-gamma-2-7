@@ -4,7 +4,7 @@ const { toJSON, paginate } = require('./plugins');
 
 const categorySchema = mongoose.Schema(
   {
-    name: { type: String },
+    name: { type: String, required: true },
     slug: { type: String, unique: true, required: true },
     seller: {
       type: String,
