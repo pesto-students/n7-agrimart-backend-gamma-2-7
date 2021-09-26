@@ -13,7 +13,7 @@ const categorySchema = mongoose.Schema(
       index: true,
       default: 'FARMER',
     },
-    for: {
+    productFor: {
       type: String,
       required: true,
       enum: ['SELL', 'RENT'],
@@ -28,14 +28,14 @@ const categorySchema = mongoose.Schema(
 );
 
 categorySchema.index({ seller: 'text' });
-categorySchema.index({ for: 'text' });
+categorySchema.index({ productFor: 'text' });
 
 // add plugin that converts mongoose to json
 categorySchema.plugin(toJSON);
 categorySchema.plugin(paginate);
 
 categorySchema.pre('validate', function (next) {
-  this.slug = slug(`${this.name}-on${this.for}-by${this.seller}`);
+  this.slug = slug(`${this.name}-on${this.productFor}-by${this.seller}`);
   next();
 });
 
