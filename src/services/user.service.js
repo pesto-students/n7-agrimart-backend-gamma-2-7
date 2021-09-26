@@ -73,7 +73,7 @@ const updateUserById = async (req) => {
   }
   Object.assign(user, updateBody);
   if (imagePath) {
-    user.avatar = imagePath;
+    user.avatar = `${process.env.URL}/${imagePath}`;
   }
   await user.save();
   const { name, email, phones, whatsAppNo, address, avatar, userType } = user;
