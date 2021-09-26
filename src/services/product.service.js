@@ -6,9 +6,19 @@ const { Product } = require('../models');
  * @param {Object} productBody
  * @returns {Promise<Product>}
  */
-const createProduct = async (userId, productBody) => {
-  // eslint-disable-next-line no-param-reassign
+const createProduct = async (req) => {
+  const userId = req.user.id;
+  const productBody = req.body;
+  let images = req.files;
+
+  if (images) {
+    images = images.map((image) => {
+      return `${process.env.URL}/${image.filename}`;
+    });
+    productBody.images = images;
+  }
   productBody.productOwner = userId;
+
   const product = await Product.create(productBody);
   return product;
 };
@@ -52,6 +62,15 @@ const updateUserById = async (req, res) => {
   if (!product.productOwner.equals(req.user.id)) {
     return res.send(httpStatus.FORBIDDEN, 'User not authorized');
   }
+  let images = req.files;
+
+  if (images) {
+    images = images.map((image) => {
+      return `${process.env.URL}/${image.filename}`;
+    });
+    updateBody.images = images;
+  }
+
   Object.assign(product, updateBody);
   await product.save();
   return product;

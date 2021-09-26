@@ -28,6 +28,21 @@
   },
   "userType":"COMPANY",
   "avatar":""
-}
+},
+{
+  "name":"Rahul Rauniyar",
+  "email": "buyer1@gmail.com",
+  "password": "password1",
+  "phones":["9845981234"],
+  "whatsAppNo":"9845981234",
+  "address":{
+      "state":"Delhi",
+      "city": "New Delhi",
+      "zipCode":"5678",
+      "area":"new Delhi, Delhi"
+  },
+  "userType":"BUYER",
+  "avatar":""
+  }
 ]
 

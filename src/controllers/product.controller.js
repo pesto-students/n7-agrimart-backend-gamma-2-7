@@ -7,7 +7,7 @@ const createProduct = catchAsync(async (req, res) => {
   if (!req.user.isprofileCompleted) {
     return res.status(httpStatus.BAD_REQUEST).send('To add product first complete your profile');
   }
-  const product = await productService.createProduct(req.user.id, req.body);
+  const product = await productService.createProduct(req);
   res.status(httpStatus.CREATED).send(product);
 });
 

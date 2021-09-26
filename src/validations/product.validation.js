@@ -34,18 +34,16 @@ const updateProduct = {
   params: Joi.object().keys({
     productId: Joi.required().custom(objectId),
   }),
-  body: Joi.object()
-    .keys({
-      title: Joi.string(),
-      description: Joi.string(),
-      price: Joi.number(),
-      productOn: Joi.string().valid('SELL', 'RENT'),
-      productBy: Joi.string().valid('FARMER', 'COMPANY'),
-      minimumOrderQuantity: Joi.string(),
-      images: Joi.array().items(Joi.string()),
-      categories: Joi.array().items(Joi.custom(objectId)),
-    })
-    .min(1),
+  body: Joi.object().keys({
+    title: Joi.string(),
+    description: Joi.string(),
+    price: Joi.number(),
+    productOn: Joi.string().valid('SELL', 'RENT'),
+    productBy: Joi.string().valid('FARMER', 'COMPANY'),
+    minimumOrderQuantity: Joi.string(),
+    images: Joi.array().items(Joi.string()),
+    categories: Joi.array().items(Joi.custom(objectId)),
+  }),
 };
 
 const deleteProduct = {
