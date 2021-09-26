@@ -72,8 +72,18 @@ const updateUserById = async (req) => {
     await User.updateOne(updateBody, { isEmailVerified: false });
   }
   Object.assign(user, updateBody);
-  user.avatar = `${process.env.URL}/${imagePath}`;
+  if (imagePath) {
+    user.avatar = imagePath;
+  }
   await user.save();
+  const { name, email, phones, whatsAppNo, address, avatar, userType } = user;
+  if (name && email && phones && whatsAppNo && address && avatar && userType) {
+    user.isProfileCompleted = true;
+    await user.save();
+  } else {
+    user.isProfileCompleted = false;
+    await user.save();
+  }
   return user;
 };
 
