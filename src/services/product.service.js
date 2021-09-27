@@ -43,7 +43,7 @@ const queryProducts = async (filter, options) => {
  * @returns {Promise<Product>}
  */
 const getProductById = async (id) => {
-  return Product.findById(id);
+  return Product.findById(id).populate('productOwner');
 };
 
 /**
