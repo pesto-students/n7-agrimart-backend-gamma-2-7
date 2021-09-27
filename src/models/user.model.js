@@ -66,14 +66,14 @@ const userSchema = mongoose.Schema(
         trim: true,
       },
     },
-    wishList: {
-      product: [
-        {
-          type: mongoose.SchemaTypes.ObjectId,
-          ref: 'Product',
-        },
-      ],
-    },
+    wishListProducts: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        unique: true,
+        ref: 'Product',
+      },
+    ],
     reviews: [
       {
         type: mongoose.SchemaTypes.ObjectId,
