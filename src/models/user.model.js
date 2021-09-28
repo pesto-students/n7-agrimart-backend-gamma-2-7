@@ -74,12 +74,6 @@ const userSchema = mongoose.Schema(
         ref: 'Product',
       },
     ],
-    reviews: [
-      {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Review',
-      },
-    ],
     userType: {
       type: String,
       enum: ['BUYER', 'FARMER', 'COMPANY'],

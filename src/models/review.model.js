@@ -3,12 +3,17 @@ const { toJSON, paginate } = require('./plugins');
 
 const reviewSchema = mongoose.Schema(
   {
+    seller: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'User',
+      required: true,
+    },
     reviewAuther: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'User',
       required: true,
     },
-    reviewText: {
+    review: {
       type: String,
       required: true,
       trim: true,

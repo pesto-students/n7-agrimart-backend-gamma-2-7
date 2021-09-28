@@ -10,7 +10,7 @@ router.patch('/', auth(), validate(userValidation.updateUser), upload.single('av
 
 // wishList api
 router
-  .route('/wishList')
+  .route('/wishLists')
   .patch(auth(), validate(userValidation.addToWishList), userController.addToWishList)
   .get(auth(), userController.getWishLists);
 
