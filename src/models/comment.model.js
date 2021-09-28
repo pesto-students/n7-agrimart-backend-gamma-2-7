@@ -2,12 +2,16 @@ const mongoose = require('mongoose');
 const { toJSON, paginate } = require('./plugins');
 
 const commentSchema = mongoose.Schema({
-  post: {
+  product: {
+    type: mongoose.SchemaTypes.ObjectId,
+    required: true,
+  },
+  comment: {
     type: String,
     trim: true,
     required: true,
   },
-  postAuther: {
+  commentAuther: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: 'User',
     required: true,
