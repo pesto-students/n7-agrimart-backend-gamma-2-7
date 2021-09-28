@@ -15,16 +15,25 @@ const addToWishList = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).send({ products: user.wishListProducts });
 });
 
+const getUser = catchAsync(async (req, res) => {
+  const user = await userService.getUserById(req.user.id);
+  if (!user) {
+    res.status(httpStatus.NOT_FOUND).send('User not found');
+  }
+  res.send(user);
+});
+
 const getWishLists = catchAsync(async (req, res) => {
   if (!req.user) {
     return res.status(httpStatus.BAD_REQUEST).send('Login first, To get wishList');
   }
-  const user = await userService.getUserById(req.user.id);
+  const user = await userService.getWishListsByUserId(req.user.id);
   res.send({ products: user.wishListProducts });
 });
 
 module.exports = {
   updateUser,
+  getUser,
   addToWishList,
   getWishLists,
 };

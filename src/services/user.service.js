@@ -37,6 +37,10 @@ const queryUsers = async (filter, options) => {
  * @returns {Promise<User>}
  */
 const getUserById = async (id) => {
+  return User.findById(id);
+};
+
+const getWishListsByUserId = async (id) => {
   return User.findById(id).populate('wishListProducts');
 };
 
@@ -120,6 +124,7 @@ const deleteUserById = async (userId) => {
 
 module.exports = {
   createUser,
+  getWishListsByUserId,
   queryUsers,
   getUserById,
   updateWishList,
