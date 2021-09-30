@@ -12,7 +12,17 @@ const createReview = catchAsync(async (req, res) => {
 
 const getReviewsBySeller = catchAsync(async (req, res) => {
   const reviews = await reviewService.getreviewsBySellerId(req.params.sellerId);
-  res.send(reviews);
+  const allRatings = reviews.map((review) => review.rating);
+  let count = 0;
+  let sum = 0;
+
+  allRatings.forEach(function (value, index) {
+    count += value;
+    sum += value * (index + 1);
+  });
+
+  const averageRating = sum / count;
+  res.send({ reviews, averageRating });
 });
 
 module.exports = {
