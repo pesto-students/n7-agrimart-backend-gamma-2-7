@@ -4,7 +4,7 @@ const catchAsync = require('../utils/catchAsync');
 const { productService } = require('../services');
 
 const createProduct = catchAsync(async (req, res) => {
-  if (!req.user.isprofileCompleted) {
+  if (!req.user.isProfileCompleted) {
     return res.status(httpStatus.BAD_REQUEST).send('To add product first complete your profile');
   }
   const product = await productService.createProduct(req);
