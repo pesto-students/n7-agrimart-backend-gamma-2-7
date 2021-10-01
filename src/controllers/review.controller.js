@@ -14,14 +14,12 @@ const getReviewsBySeller = catchAsync(async (req, res) => {
   const reviews = await reviewService.getreviewsBySellerId(req.params.sellerId);
   const allRatings = reviews.map((review) => review.rating);
   let count = 0;
-  let sum = 0;
 
-  allRatings.forEach(function (value, index) {
+  allRatings.forEach(function (value) {
     count += value;
-    sum += value * (index + 1);
   });
 
-  const averageRating = sum / count;
+  const averageRating = count / allRatings.length;
   res.send({ reviews, averageRating });
 });
 
