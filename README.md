@@ -150,7 +150,7 @@ src\
 
 ## API Documentation
 
-To view the list of available APIs and their specifications, run the server and go to `http://localhost:3000/v1/docs` in your browser. This documentation page is automatically generated using the [swagger](https://swagger.io/) definitions written as comments in the route files.
+To view the list of available APIs and their specifications, go to `https://documenter.getpostman.com/view/11788550/UUy3A6y6` in your browser. This documentation page is automatically generated using the [postman]
 
 ### API Endpoints with Examples
 Access API Documentation at https://documenter.getpostman.com/view/11788550/UUy3A6y6
