@@ -97,37 +97,19 @@
   },
   {
     "name": "Farming Vehicles",
-    "seller": "FARMER",
+    "seller": "Both",
     "productFor" : "RENT",
     "icon": "/categories/tractor.png"
   },
   {
     "name": "Farming Machine",
-    "seller": "FARMER",
+    "seller": "Both",
     "productFor" : "RENT",
     "icon": "/categories/machine.png"
   },
   {
     "name": "Others",
-    "seller": "FARMER",
-    "productFor" : "RENT",
-    "icon": "/categories/more.png"
-  },
-  {
-    "name": "Farming Vehicles",
-    "seller": "COMPANY",
-    "productFor" : "RENT",
-    "icon": "/categories/tractor.png"
-  },
-  {
-    "name": "Farming Machine",
-    "seller": "COMPANY",
-    "productFor" : "RENT",
-    "icon": "/categories/machine.png"
-  },
-  {
-    "name": "Others",
-    "seller": "COMPANY",
+    "seller": "Both",
     "productFor" : "RENT",
     "icon": "/categories/more.png"
   }
