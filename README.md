@@ -24,7 +24,7 @@
 
 ## Table of Contents
 
-- [Features](#features)
+- [Tech Stack 💻](#tech-stack)
 - [Commands](#commands)
 - [Environment Variables](#environment-variables)
 - [Project Structure](#project-structure)
@@ -39,7 +39,8 @@
 - [Linting](#linting)
 - [Contributing](#contributing)
 
-## Features
+
+## Tech Stack 💻
 
 - **NoSQL database**: [MongoDB](https://www.mongodb.com) object data modeling using [Mongoose](https://mongoosejs.com)
 - **Authentication and authorization**: using [passport](http://www.passportjs.org)
@@ -357,6 +358,3 @@ To maintain a consistent coding style across different IDEs, the project contain
 - [danielfsousa/express-rest-es2017-boilerplate](https://github.com/danielfsousa/express-rest-es2017-boilerplate)
 - [madhums/node-express-mongoose](https://github.com/madhums/node-express-mongoose)
 
-## License
-
-[MIT](LICENSE)
