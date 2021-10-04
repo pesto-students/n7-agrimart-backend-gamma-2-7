@@ -29,6 +29,7 @@
 - [Environment Variables](#environment-variables)
 - [Project Structure](#project-structure)
 - [API Documentation](#api-documentation)
+- [Model Diagram](#model-diagram)
 - [Error Handling](#error-handling)
 - [Validation](#validation)
 - [Authentication](#authentication)
@@ -155,6 +156,10 @@ To view the list of available APIs and their specifications, go to `https://docu
 ### API Endpoints with Examples
 Access API Documentation at https://documenter.getpostman.com/view/11788550/UUy3A6y6
 
+## Model Diagram
+
+![AgroMart diagram - Model](https://user-images.githubusercontent.com/17526745/135899120-d486ffcd-c194-4996-9e55-383598d3b74a.png)
+
 ## Error Handling
 
 The app has a centralized error handling mechanism.
@@ -242,26 +247,6 @@ An access token is valid for 30 minutes. You can modify this expiration time by 
 After the access token expires, a new access token can be generated, by making a call to the refresh token endpoint (`POST /v1/auth/refresh-tokens`) and sending along a valid refresh token in the request body. This call returns a new access token and a new refresh token.
 
 A refresh token is valid for 30 days. You can modify this expiration time by changing the `JWT_REFRESH_EXPIRATION_DAYS` environment variable in the .env file.
-
-## Authorization
-
-The `auth` middleware can also be used to require certain rights/permissions to access a route.
-
-```javascript
-const express = require('express');
-const auth = require('../../middlewares/auth');
-const userController = require('../../controllers/user.controller');
-
-const router = express.Router();
-
-router.post('/users', auth('manageUsers'), userController.createUser);
-```
-
-In the example above, an authenticated user can access this route only if that user has the `manageUsers` permission.
-
-The permissions are role-based. You can view the permissions/rights of each role in the `src/config/roles.js` file.
-
-If the user making the request does not have the required permissions to access this route, a Forbidden (403) error is thrown.
 
 ## Logging
 
