@@ -24,7 +24,7 @@
 
 ## Table of Contents
 
-- [Tech Stack 💻](#tech-stack)
+- [Tech Stack](#tech-stack)
 - [Commands](#commands)
 - [Environment Variables](#environment-variables)
 - [Project Structure](#project-structure)
@@ -40,7 +40,7 @@
 - [Contributing](#contributing)
 
 
-## Tech Stack 💻
+## Tech Stack
 
 - **NoSQL database**: [MongoDB](https://www.mongodb.com) object data modeling using [Mongoose](https://mongoosejs.com)
 - **Authentication and authorization**: using [passport](http://www.passportjs.org)
