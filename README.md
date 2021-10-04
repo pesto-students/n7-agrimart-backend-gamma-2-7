@@ -47,6 +47,7 @@
 - **Testing**: unit and integration tests using [Jest](https://jestjs.io)
 - **Error handling**: centralized error handling mechanism
 - **API documentation**: with POSTMAN Access at https://documenter.getpostman.com/view/11788550/UUy3A6y6
+- **Model Diagram**: with [Hackolade] (https://hackolade.com/) 
 - **Process management**: advanced production process management using [PM2](https://pm2.keymetrics.io)
 - **Dependency management**: with [Yarn](https://yarnpkg.com)
 - **Environment variables**: using [dotenv](https://github.com/motdotla/dotenv) and [cross-env](https://github.com/kentcdodds/cross-env#readme)
@@ -55,8 +56,7 @@
 - **CORS**: Cross-Origin Resource-Sharing enabled using [cors](https://github.com/expressjs/cors)
 - **Compression**: gzip compression with [compression](https://github.com/expressjs/compression)
 - **CI**: continuous integration with [Circle CI](https://circleci.com/)
-- **Code quality**: with [Codacy](https://www.codacy.com)
-- **Git hooks**: with [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged)
+- **Git hooks**: with and [lint-staged](https://github.com/okonet/lint-staged)
 - **Linting**: with [ESLint](https://eslint.org) and [Prettier](https://prettier.io)
 - **Editor config**: consistent editor configuration using [EditorConfig](https://editorconfig.org)
 
