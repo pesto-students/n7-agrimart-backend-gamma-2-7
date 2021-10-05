@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 const pick = require('../utils/pick');
 const catchAsync = require('../utils/catchAsync');
-const { productService } = require('../services');
+const { productService, categoryService } = require('../services');
 
 const createProduct = catchAsync(async (req, res) => {
   if (!req.user.isProfileCompleted) {
@@ -12,9 +12,9 @@ const createProduct = catchAsync(async (req, res) => {
 });
 
 const getProducts = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['title', 'description', 'queryString', 'categories', 'productOn', 'productBy']);
+  const filter = pick(req.query, ['title', 'description', 'queryString', 'categories', 'productFor', 'seller']);
   let finalFilter = filter;
-  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  let options = pick(req.query, ['sortBy', 'limit', 'page']);
   if (filter.title) {
     // eslint-disable-next-line security/detect-non-literal-regexp
     const regex = new RegExp(filter.title, 'i'); // i for case insensitive
@@ -33,6 +33,17 @@ const getProducts = catchAsync(async (req, res) => {
   if (filter.queryString) {
     finalFilter = { $text: { $search: filter.queryString } };
   }
+
+  if (filter.productFor || filter.seller) {
+    // eslint-disable-next-line no-shadow
+    const options = null;
+    const categories = await categoryService.queryCategories(filter, options);
+    const categoriesId = categories.map((category) => category.id);
+    finalFilter = {
+      categories: { $in: [...categoriesId] },
+    };
+  }
+
   options.populate = 'categories, productOwner';
   const result = await productService.queryProducts(finalFilter, options);
   res.send(result);
