@@ -1,4 +1,5 @@
 const httpStatus = require('http-status');
+const mongoose = require('mongoose');
 const { User } = require('../models');
 const ApiError = require('../utils/ApiError');
 const tokenService = require('./token.service');
@@ -37,6 +38,10 @@ const queryUsers = async (filter, options) => {
  */
 const getUserById = async (id) => {
   return User.findById(id);
+};
+
+const getWishListsByUserId = async (id) => {
+  return User.findById(id).populate('wishListProducts');
 };
 
 /**
@@ -87,6 +92,22 @@ const updateUserById = async (req) => {
   return user;
 };
 
+const updateWishList = async (req) => {
+  const userId = req.user.id;
+  const user = await getUserById(userId);
+  if (!user) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
+  }
+
+  const { productId } = req.body;
+  const { wishListProducts } = user;
+  if (!wishListProducts.includes(mongoose.Types.ObjectId(productId))) {
+    wishListProducts.push(productId);
+  }
+  await user.save();
+  return user;
+};
+
 /**
  * Delete user by id
  * @param {ObjectId} userId
@@ -103,8 +124,10 @@ const deleteUserById = async (userId) => {
 
 module.exports = {
   createUser,
+  getWishListsByUserId,
   queryUsers,
   getUserById,
+  updateWishList,
   getUserByEmail,
   updateUserById,
   deleteUserById,

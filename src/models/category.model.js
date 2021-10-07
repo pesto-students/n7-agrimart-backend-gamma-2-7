@@ -9,7 +9,7 @@ const categorySchema = mongoose.Schema(
     seller: {
       type: String,
       required: true,
-      enum: ['FARMER', 'COMPANY'],
+      enum: ['FARMER', 'COMPANY', 'BOTH'],
       index: true,
       default: 'FARMER',
     },

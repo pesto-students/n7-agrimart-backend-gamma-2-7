@@ -6,7 +6,16 @@ const userController = require('../../controllers/user.controller');
 const upload = require('../../utils/upload');
 
 const router = express.Router();
-router.patch('/', auth(), validate(userValidation.updateUser), upload.single('avatar'), userController.updateUser);
+router
+  .route('/')
+  .patch(auth(), validate(userValidation.updateUser), upload.single('avatar'), userController.updateUser)
+  .get(auth(), userController.getUser);
+
+// wishList api
+router
+  .route('/wishLists')
+  .patch(auth(), validate(userValidation.addToWishList), userController.addToWishList)
+  .get(auth(), userController.getWishLists);
 
 module.exports = router;
 

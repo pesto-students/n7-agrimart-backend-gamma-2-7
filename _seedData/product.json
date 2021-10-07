@@ -1,10 +1,86 @@
 [
   {
-    "title": "Wheat Grains",
-    "description": "very good Wheat Grains",
-    "price":"RS 50/ KG",
-    "minimumOrderQuantity":"1000 kg",
-    "productOwner": "614edac615fc1c4048cc9acf",
-    "categories": ["614edac615fc1c4048cc9acf"]
-    }
-]
+  "images": [],
+  "categories": [""],
+  "title": "pesticides for crops",
+  "description": "good quality pesticides",
+  "price": "RS 100/ piece"
+  },
+  {
+    "images": [],
+    "categories": [""],
+    "title": "Tractor on rent",
+    "description": "we provide tractor on rent",
+    "price": "RS 1000/ day"
+  },
+  {
+  "images": [],
+  "categories": ["614edac615fc1c4048cc9ad1"],
+  "title": "Big Apple",
+  "description": "good quality Apple very fresh",
+  "price": "RS 150/ KG",
+  "minimumOrderQuantity": "100 kg"
+  },
+  {
+  "images": [],
+  "categories": [""],
+  "title": "land for farming",
+  "description": "I have land which is free now i want to give on rent for year",
+  "price": "RS 200000/ year"
+  },
+  {
+  "images": [],
+  "categories": [],
+  "title": "Basmati Rice",
+  "description": "good quality basmati rice",
+  "price": "RS 60/ KG",
+  "minimumOrderQuantity": "100 kg"
+  },
+  {
+  "images": [],
+  "categories": [""],
+  "title": "Wheat Grains",
+  "description": "very good Wheat Grains",
+  "price": "RS 50/ KG",
+  "minimumOrderQuantity": "1000 kg"
+  },
+  {
+  "images": [],
+  "categories": [""],
+  "title": "Wheat Grains",
+  "description": "very good Wheat Grains",
+  "price": "RS 50/ KG",
+  "minimumOrderQuantity": "1000 kg"
+  },
+  {
+  "images": [],
+  "categories": [""],
+  "title": "Wheat Grains",
+  "description": "very good Wheat Grains",
+  "price": "RS 50/ KG",
+  "minimumOrderQuantity": "1000 kg"
+  },
+  {
+  "images": [],
+  "categories": [""],
+  "title": "Tomato",
+  "description": "very good quality tomato",
+  "price": "RS 20/ KG",
+  "minimumOrderQuantity": "100 kg"
+  },
+  {
+  "images": [],
+  "categories": [""],
+  "title": "Potato",
+  "description": "very good quality potato",
+  "price": "RS 20/ KG",
+  "minimumOrderQuantity": "100 kg"
+  },
+  {  "images": [],
+    "categories": [""],
+    "title": "Tomato",
+    "description": "good quality tomato",
+    "price": "RS 30/ KG",
+    "minimumOrderQuantity": "100 kg"
+  }
+  ]

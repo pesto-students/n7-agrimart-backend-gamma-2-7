@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const { objectId } = require('./custom.validation');
 
 const updateUser = {
   body: Joi.object().keys({
@@ -25,6 +26,13 @@ const updateUser = {
   }),
 };
 
+const addToWishList = {
+  body: Joi.object().keys({
+    productId: Joi.required().custom(objectId),
+  }),
+};
+
 module.exports = {
   updateUser,
+  addToWishList,
 };

@@ -66,18 +66,10 @@ const userSchema = mongoose.Schema(
         trim: true,
       },
     },
-    wishList: {
-      product: [
-        {
-          type: mongoose.SchemaTypes.ObjectId,
-          ref: 'Product',
-        },
-      ],
-    },
-    reviews: [
+    wishListProducts: [
       {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Review',
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
       },
     ],
     userType: {
