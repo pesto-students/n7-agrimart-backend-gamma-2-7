@@ -6,6 +6,9 @@ const createComment = catchAsync(async (req, res) => {
   if (!req.user) {
     return res.status(httpStatus.BAD_REQUEST).send('Login first, To comment on products');
   }
+  if (!req.user.isEmailVerified) {
+    return res.status(httpStatus.BAD_REQUEST).send('To add comment first very your account');
+  }
   const comment = await commentService.createComment(req.body, req.user.id);
   res.status(httpStatus.CREATED).send(comment);
 });

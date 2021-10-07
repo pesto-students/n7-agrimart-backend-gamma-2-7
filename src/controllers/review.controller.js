@@ -6,6 +6,9 @@ const createReview = catchAsync(async (req, res) => {
   if (!req.user) {
     return res.status(httpStatus.BAD_REQUEST).send('Login first, To give review to seller');
   }
+  if (!req.user.isEmailVerified) {
+    return res.status(httpStatus.BAD_REQUEST).send('To add comment first very your account');
+  }
   const review = await reviewService.createReview(req.body, req.user.id);
   res.status(httpStatus.CREATED).send(review);
 });

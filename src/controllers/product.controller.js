@@ -7,6 +7,9 @@ const createProduct = catchAsync(async (req, res) => {
   if (!req.user.isProfileCompleted) {
     return res.status(httpStatus.BAD_REQUEST).send('To add product first complete your profile');
   }
+  if (!req.user.isEmailVerified) {
+    return res.status(httpStatus.BAD_REQUEST).send('To add product first very your account');
+  }
   const product = await productService.createProduct(req);
   res.status(httpStatus.CREATED).send(product);
 });
@@ -14,7 +17,7 @@ const createProduct = catchAsync(async (req, res) => {
 const getProducts = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['title', 'description', 'queryString', 'categories', 'productFor', 'seller']);
   let finalFilter = filter;
-  let options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
   if (filter.title) {
     // eslint-disable-next-line security/detect-non-literal-regexp
     const regex = new RegExp(filter.title, 'i'); // i for case insensitive
