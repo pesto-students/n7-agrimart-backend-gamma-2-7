@@ -1,4 +1,3 @@
-# NINJA-TEMPLATE
 # AgroMart API
 
 ## Pre-requisites
