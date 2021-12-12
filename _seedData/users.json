@@ -1,0 +1,48 @@
+[
+{
+  "name": "Bijay Rauniyar",
+  "email": "farmer1@gmail.com",
+  "password": "password1",
+  "phones":["9845982192"],
+  "whatsAppNo":"9845982192",
+  "address":{
+      "state":"Bihar",
+      "city": "Raxaul",
+      "zipCode":"3423",
+      "area":"Raxaul near railway station road"
+  },
+  "userType":"FARMER",
+  "avatar":""
+},
+{
+  "name": "Apara International",
+  "email": "seller1@gmail.com",
+  "password": "password1",
+  "phones":["9845982192"],
+  "whatsAppNo":"9845982192",
+  "address":{
+      "state":"Maharashtra",
+      "city": "Mumbai",
+      "zipCode":"5678",
+      "area":"Dadar West, Mumbai, Maharashtra"
+  },
+  "userType":"COMPANY",
+  "avatar":""
+},
+{
+  "name":"Rahul Rauniyar",
+  "email": "buyer1@gmail.com",
+  "password": "password1",
+  "phones":["9845981234"],
+  "whatsAppNo":"9845981234",
+  "address":{
+      "state":"Delhi",
+      "city": "New Delhi",
+      "zipCode":"5678",
+      "area":"new Delhi, Delhi"
+  },
+  "userType":"BUYER",
+  "avatar":""
+  }
+]
+
